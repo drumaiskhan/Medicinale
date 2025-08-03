@@ -3,8 +3,102 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Medicinale - Share and access medical books, articles, and questions." />
   <title>Medicinale | Empowering Medical Learning</title>
-  <link rel="stylesheet" href="style.css" />
-  <script defer src="script.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }body {
+  background: linear-gradient(135deg, #e0f7fa, #ffffff);
+  color: #333;
+  padding: 20px;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 40px;
+  transform: perspective(1000px) rotateX(5deg);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 30px;
+}
+
+header h1 {
+  font-size: 3rem;
+  color: #00796b;
+}
+
+header p {
+  font-size: 1.2rem;
+  margin-top: 10px;
+}
+
+nav a {
+  margin: 0 15px;
+  text-decoration: none;
+  color: #004d40;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+nav a:hover {
+  color: #009688;
+}
+
+section {
+  margin: 40px auto;
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 30px;
+  width: 90%;
+  max-width: 900px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  transform: perspective(800px) rotateY(1deg);
+  transition: transform 0.3s ease;
+}
+
+section:hover {
+  transform: scale(1.01) perspective(800px) rotateY(-1deg);
+}
+
+h2 {
+  color: #00695c;
+  margin-bottom: 20px;
+}
+
+form input, form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+button {
+  background: #00796b;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+button:hover {
+  background: #004d40;
+}
+
+footer {
+  text-align: center;
+  margin-top: 60px;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+  </style>
 </head><body>
   <header>
     <h1>Medicinale</h1>
@@ -18,7 +112,8 @@
     <section id="books">
       <h2>Upload & Access Medical Books</h2>
       <p>Upload medical textbooks and browse resources shared by others.</p>
-      <p><strong>Note:</strong> File uploads require backend support. For now, use links or reference info here.</p>
+      <input type="text" placeholder="Paste book download link or title...">
+      <button onclick="alert('Book uploaded (demo)!')">Upload Book</button>
     </section><section id="qa">
   <h2>Academic Questions & Answers</h2>
   <form id="qaForm">
@@ -35,6 +130,38 @@
     <input type="text" name="title" placeholder="Article Title" required>
     <textarea name="content" placeholder="Write your article here..." required></textarea>
     <button type="submit">Post</button>
+  </form>
+  <div id="articleList"></div>
+</section>
+
+  </main>  <footer>
+    <p>&copy; 2025 Medicinale. Created by Umais Khan. All rights reserved.</p>
+  </footer>  <script>
+    const qaForm = document.getElementById('qaForm');
+    const qaList = document.getElementById('qaList');
+
+    qaForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const question = qaForm.question.value;
+      const div = document.createElement('div');
+      div.innerHTML = `<p><strong>Q:</strong> ${question}</p><p><em>Awaiting responses...</em></p>`;
+      qaList.prepend(div);
+      qaForm.reset();
+    });
+
+    const articleForm = document.getElementById('articleForm');
+    const articleList = document.getElementById('articleList');
+
+    articleForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const title = articleForm.title.value;
+      const content = articleForm.content.value;
+      const article = document.createElement('div');
+      article.innerHTML = `<h3>${title}</h3><p>${content}</p>`;
+      articleList.prepend(article);
+      articleForm.reset();
+    });
+  </script></body></html>    <button type="submit">Post</button>
   </form>
   <div id="articleList"></div>
 </section>
