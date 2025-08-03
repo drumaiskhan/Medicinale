@@ -91,6 +91,159 @@ button:hover {
   background: #004d40;
 }
 
+.book-item, .qa-item, .article-item {
+  margin-bottom: 15px;
+  background: #f9f9f9;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+footer {
+  text-align: center;
+  margin-top: 60px;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+  </style>
+</head><body>
+  <header>
+    <h1>Medicinale</h1>
+    <p>Your gateway to collaborative medical learning</p>
+    <nav>
+      <a href="#books">Books</a>
+      <a href="#qa">Q&A</a>
+      <a href="#articles">Articles</a>
+    </nav>
+  </header>  <main>
+    <section id="books">
+      <h2>Upload & Access Medical Books</h2>
+      <p>Paste Google Drive, Dropbox, or direct file links of medical books below.</p>
+      <form id="bookForm">
+        <input type="text" id="bookLink" placeholder="Enter book title or link..." required>
+        <button type="submit">Add Book</button>
+      </form>
+      <div id="bookList"></div>
+    </section><section id="qa">
+  <h2>Academic Questions & Answers</h2>
+  <form id="qaForm">
+    <label for="question">Ask a Question:</label>
+    <input type="text" name="question" required placeholder="Type your medical question...">
+    <button type="submit">Submit</button>
+  </form>
+  <div id="qaList"></div>
+</section>
+
+<section id="articles">
+  <h2>Share Articles & Insights</h2>
+  <form id="articleForm">
+    <input type="text" name="title" placeholder="Article Title" required>
+    <textarea name="content" placeholder="Write your article here..." required></textarea>
+    <button type="submit">Post</button>
+  </form>
+  <div id="articleList"></div>
+</section>
+
+  </main>  <footer>
+    <p>&copy; 2025 Medicinale. Created by Umais Khan. All rights reserved.</p>
+  </footer>  <script>
+    const qaForm = document.getElementById('qaForm');
+    const qaList = document.getElementById('qaList');
+
+    qaForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const question = qaForm.question.value;
+      const div = document.createElement('div');
+      div.classList.add('qa-item');
+      div.innerHTML = `<p><strong>Q:</strong> ${question}</p><p><em>Awaiting responses...</em></p>`;
+      qaList.prepend(div);
+      qaForm.reset();
+    });
+
+    const articleForm = document.getElementById('articleForm');
+    const articleList = document.getElementById('articleList');
+
+    articleForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const title = articleForm.title.value;
+      const content = articleForm.content.value;
+      const article = document.createElement('div');
+      article.classList.add('article-item');
+      article.innerHTML = `<h3>${title}</h3><p>${content}</p>`;
+      articleList.prepend(article);
+      articleForm.reset();
+    });
+
+    const bookForm = document.getElementById('bookForm');
+    const bookList = document.getElementById('bookList');
+
+    bookForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const link = document.getElementById('bookLink').value;
+      const item = document.createElement('div');
+      item.classList.add('book-item');
+      item.innerHTML = `<a href="${link}" target="_blank">📘 ${link}</a>`;
+      bookList.prepend(item);
+      bookForm.reset();
+    });
+  </script></body></html>}
+
+nav a {
+  margin: 0 15px;
+  text-decoration: none;
+  color: #004d40;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+nav a:hover {
+  color: #009688;
+}
+
+section {
+  margin: 40px auto;
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 30px;
+  width: 90%;
+  max-width: 900px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  transform: perspective(800px) rotateY(1deg);
+  transition: transform 0.3s ease;
+}
+
+section:hover {
+  transform: scale(1.01) perspective(800px) rotateY(-1deg);
+}
+
+h2 {
+  color: #00695c;
+  margin-bottom: 20px;
+}
+
+form input, form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+button {
+  background: #00796b;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+button:hover {
+  background: #004d40;
+}
+
 footer {
   text-align: center;
   margin-top: 60px;
