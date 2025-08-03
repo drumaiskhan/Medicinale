@@ -1,58 +1,45 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<!DOCTYPE html><html lang="en"><head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Medicinale</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Medicinale - Share and access medical books, articles, and questions." />
+  <title>Medicinale | Empowering Medical Learning</title>
   <link rel="stylesheet" href="style.css" />
-</head>
-<body>
+  <script defer src="script.js"></script>
+</head><body>
   <header>
     <h1>Medicinale</h1>
+    <p>Your gateway to collaborative medical learning</p>
     <nav>
       <a href="#books">Books</a>
       <a href="#qa">Q&A</a>
       <a href="#articles">Articles</a>
     </nav>
-  </header>
-
-  <main>
+  </header>  <main>
     <section id="books">
-      <h2>📚 Medical Books</h2>
-      <p>This section allows users to browse or upload useful medical textbooks and PDFs (upload requires backend).</p>
-      <div id="bookList">
-        <p>No books available in static mode.</p>
-      </div>
-    </section>
+      <h2>Upload & Access Medical Books</h2>
+      <p>Upload medical textbooks and browse resources shared by others.</p>
+      <p><strong>Note:</strong> File uploads require backend support. For now, use links or reference info here.</p>
+    </section><section id="qa">
+  <h2>Academic Questions & Answers</h2>
+  <form id="qaForm">
+    <label for="question">Ask a Question:</label>
+    <input type="text" name="question" required placeholder="Type your medical question...">
+    <button type="submit">Submit</button>
+  </form>
+  <div id="qaList"></div>
+</section>
 
-    <section id="qa">
-      <h2>❓ Ask & Answer</h2>
-      <form id="qaForm">
-        <input type="text" name="question" placeholder="Ask a medical question..." required />
-        <button type="submit">Submit</button>
-      </form>
-      <div id="qaList">
-        <p>No questions posted yet.</p>
-      </div>
-    </section>
+<section id="articles">
+  <h2>Share Articles & Insights</h2>
+  <form id="articleForm">
+    <input type="text" name="title" placeholder="Article Title" required>
+    <textarea name="content" placeholder="Write your article here..." required></textarea>
+    <button type="submit">Post</button>
+  </form>
+  <div id="articleList"></div>
+</section>
 
-    <section id="articles">
-      <h2>📝 Medical Articles</h2>
-      <form id="articleForm">
-        <input type="text" name="title" placeholder="Article Title" required />
-        <textarea name="content" placeholder="Write your article here..." required></textarea>
-        <button type="submit">Post Article</button>
-      </form>
-      <div id="articleList">
-        <p>No articles posted yet.</p>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <p>Created by Umais Khan • Medicinale © 2025</p>
+  </main>  <footer>
+    <p>&copy; 2025 Medicinale. Created by Umais Khan. All rights reserved.</p>
   </footer>
-
-  <script src="script.js"></script>
-</body>
-</html>
+</body></html>
